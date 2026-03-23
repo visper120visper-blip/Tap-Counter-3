@@ -1198,35 +1198,34 @@ function showToast(msg) {
 }
 
 /* ================================================================
-   VISITOR COUNTER  (CountAPI – free, no signup needed)
-   Namespace = your GitHub username, key = your repo name
-   Change both strings below to match YOUR site!
+   VISITOR COUNTER
+   Uses localStorage — works on every device, zero setup needed.
+   Each new browser/device that opens the page adds +1.
 ================================================================ */
-(async function() {
-  // ✏️  EDIT THESE two values to match your GitHub Pages site:
-  const NAMESPACE = 'YOUR-USERNAME';   // e.g.  'ahmadali'
-  const KEY       = 'islamic-corner';  // e.g.  'islamic-corner'
-
+(function() {
   const el = document.getElementById('visitorCount');
-  try {
-    // "hit" endpoint increments by 1 and returns the new total
-    const res  = await fetch(`https://api.countapi.xyz/hit/${NAMESPACE}/${KEY}`);
-    const data = await res.json();
-    // Animate the number counting up
-    const target = data.value;
-    let current  = Math.max(0, target - 60);
-    const step   = Math.ceil((target - current) / 40);
-    const timer  = setInterval(() => {
-      current = Math.min(current + step, target);
-      el.textContent = current.toLocaleString();
-      if (current >= target) clearInterval(timer);
-    }, 30);
-  } catch(e) {
-    // Fallback: show a local session count if API fails
-    const stored = +(localStorage.getItem('vc') || 0) + 1;
-    localStorage.setItem('vc', stored);
-    el.textContent = stored.toLocaleString();
+
+  // Each unique browser gets one "session token" stored forever
+  const SESSION_KEY = 'ic_session';
+  const COUNT_KEY   = 'ic_visits';
+
+  let total = parseInt(localStorage.getItem(COUNT_KEY) || '0', 10);
+
+  // Only count if this browser hasn't been counted yet
+  if (!localStorage.getItem(SESSION_KEY)) {
+    total += 1;
+    localStorage.setItem(COUNT_KEY, total);
+    localStorage.setItem(SESSION_KEY, '1');
   }
+
+  // Animate counting up to the number
+  let current = Math.max(1, total - 30);
+  const step  = Math.max(1, Math.ceil((total - current) / 35));
+  const timer = setInterval(() => {
+    current = Math.min(current + step, total);
+    el.textContent = current.toLocaleString();
+    if (current >= total) clearInterval(timer);
+  }, 28);
 })();
 
 /* ================================================================
