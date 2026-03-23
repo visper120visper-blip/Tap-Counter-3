@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ===== SEO: EDIT THESE TO MATCH YOUR SITE ===== -->
+  <title>Islamic Corner – Prayer Times, Tasbih, Qibla & 99 Names of Allah</title>
+  <meta name="description" content="Your all-in-one Islamic companion. Get accurate prayer times, Qibla direction, Tasbih counter, and explore the 99 Beautiful Names of Allah (Asmaul Husna). Built with love for every Muslim." />
+  <meta name="keywords" content="Islamic website, prayer times, salah times, Qibla direction, tasbih counter, 99 names of Allah, Asmaul Husna, Muslim, Islam, dhikr, dua" />
+  <meta name="author" content="Islamic Corner" />
+  <link rel="canonical" href="https://YOUR-USERNAME.github.io/" />
+
+  <!-- Open Graph (Facebook / WhatsApp share preview) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://YOUR-USERNAME.github.io/" />
+  <meta property="og:title" content="Islamic Corner – Prayer Times, Tasbih, Qibla & 99 Names" />
+  <meta property="og:description" content="Your all-in-one Islamic companion. Prayer times, Qibla, Tasbih counter, and 99 Beautiful Names of Allah." />
+  <meta property="og:image" content="https://YOUR-USERNAME.github.io/preview.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Islamic Corner – Prayer Times, Tasbih & More" />
+  <meta name="twitter:description" content="Your all-in-one Islamic companion online. Free, fast, beautiful." />
+
+  <!-- Structured Data for Google -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Islamic Corner",
+    "url": "https://YOUR-USERNAME.github.io/",
+    "description": "Islamic companion with prayer times, Qibla direction, Tasbih counter, and 99 Names of Allah.",
+    "keywords": "prayer times, tasbih, qibla, 99 names of Allah, Islam"
+  }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #070e1a;
+      --bg2:       #0d1a2e;
+      --bg3:       #112240;
+      --gold:      #c9a84c;
+      --gold2:     #e8c96a;
+      --cream:     #f0e6d2;
+      --text:      #d4c5a9;
+      --muted:     #7a8fa6;
+      --accent:    #1b6b4a;
+      --accent2:   #25a06e;
+      --radius:    14px;
+      --shadow:    0 8px 40px rgba(0,0,0,0.5);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ===== GEOMETRIC BACKGROUND PATTERN ===== */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        repeating-linear-gradient(60deg, rgba(201,168,76,0.03) 0px, rgba(201,168,76,0.03) 1px, transparent 1px, transparent 40px),
+        repeating-linear-gradient(-60deg, rgba(201,168,76,0.03) 0px, rgba(201,168,76,0.03) 1px, transparent 1px, transparent 40px),
+        repeating-linear-gradient(0deg, rgba(201,168,76,0.02) 0px, rgba(201,168,76,0.02) 1px, transparent 1px, transparent 40px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ===== NAV ===== */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(7,14,26,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+
+    .nav-logo {
+      font-family: 'Cinzel', serif;
+      font-size: 1.1rem;
+      color: var(--gold);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.4rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.25s;
+    }
+
+    .nav-links a:hover { color: var(--gold); }
+
+    /* ===== HERO ===== */
+    .hero {
+      position: relative;
+      z-index: 1;
+      min-height: 88vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 4rem 1.5rem 2rem;
+      overflow: hidden;
+    }
+
+    /* Glowing mandala ring */
+    .hero::after {
+      content: '';
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      border: 1px solid rgba(201,168,76,0.1);
+      box-shadow: 0 0 80px rgba(201,168,76,0.07), inset 0 0 80px rgba(201,168,76,0.04);
+      animation: pulse-ring 6s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes pulse-ring {
+      0%, 100% { transform: scale(1); opacity: 0.5; }
+      50%       { transform: scale(1.06); opacity: 1; }
+    }
+
+    .bismillah {
+      font-family: 'Amiri', serif;
+      font-size: clamp(2rem, 6vw, 3.8rem);
+      color: var(--gold);
+      letter-spacing: 0.04em;
+      text-shadow: 0 0 40px rgba(201,168,76,0.4);
+      margin-bottom: 1rem;
+      animation: fadeUp 1s ease both;
+    }
+
+    .hero-title {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.2rem, 4vw, 2rem);
+      color: var(--cream);
+      letter-spacing: 0.12em;
+      margin-bottom: 0.6rem;
+      animation: fadeUp 1s 0.2s ease both;
+    }
+
+    .hero-sub {
+      color: var(--muted);
+      font-size: 0.95rem;
+      max-width: 500px;
+      line-height: 1.7;
+      animation: fadeUp 1s 0.4s ease both;
+    }
+
+    /* visitor counter in hero */
+    .visitor-badge {
+      margin-top: 2rem;
+      background: rgba(201,168,76,0.07);
+      border: 1px solid rgba(201,168,76,0.2);
+      border-radius: 50px;
+      padding: 0.45rem 1.2rem;
+      font-size: 0.82rem;
+      color: var(--gold);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      animation: fadeUp 1s 0.6s ease both;
+    }
+
+    .visitor-dot {
+      width: 7px; height: 7px;
+      background: var(--accent2);
+      border-radius: 50%;
+      animation: blink 1.4s ease-in-out infinite;
+    }
+
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.2} }
+
+    .scroll-hint {
+      margin-top: 3rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--muted);
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      animation: fadeUp 1s 0.8s ease both;
+    }
+
+    .scroll-arrow {
+      width: 20px; height: 20px;
+      border-right: 1px solid var(--gold);
+      border-bottom: 1px solid var(--gold);
+      transform: rotate(45deg);
+      animation: bounce 1.8s ease-in-out infinite;
+    }
+
+    @keyframes bounce { 0%,100%{transform:rotate(45deg) translateY(0)} 50%{transform:rotate(45deg) translateY(5px)} }
+    @keyframes fadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:none} }
+
+    /* ===== SECTION COMMON ===== */
+    section {
+      position: relative;
+      z-index: 1;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem;
+    }
+
+    .section-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      color: var(--cream);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-divider {
+      width: 48px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      margin-bottom: 2.5rem;
+    }
+
+    .card {
+      background: var(--bg2);
+      border: 1px solid rgba(201,168,76,0.1);
+      border-radius: var(--radius);
+      padding: 2rem;
+      box-shadow: var(--shadow);
+    }
+
+    /* ===== PRAYER TIMES ===== */
+    #prayer .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .prayer-card { text-align: center; }
+
+    .prayer-location {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .prayer-location input {
+      background: var(--bg3);
+      border: 1px solid rgba(201,168,76,0.2);
+      color: var(--cream);
+      border-radius: 8px;
+      padding: 0.5rem 0.9rem;
+      font-size: 0.85rem;
+      font-family: 'Lato', sans-serif;
+      flex: 1;
+      min-width: 120px;
+    }
+
+    .prayer-location input:focus { outline: none; border-color: var(--gold); }
+
+    .btn {
+      background: linear-gradient(135deg, var(--gold), #a07830);
+      color: var(--bg);
+      border: none;
+      border-radius: 8px;
+      padding: 0.55rem 1.2rem;
+      font-weight: 700;
+      font-size: 0.82rem;
+      cursor: pointer;
+      letter-spacing: 0.05em;
+      transition: opacity 0.2s, transform 0.15s;
+      font-family: 'Lato', sans-serif;
+    }
+
+    .btn:hover { opacity: 0.85; transform: translateY(-1px); }
+    .btn:active { transform: scale(0.97); }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid rgba(201,168,76,0.35);
+      color: var(--gold);
+    }
+
+    .prayer-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.8rem;
+    }
+
+    .prayer-item {
+      background: var(--bg3);
+      border: 1px solid rgba(201,168,76,0.08);
+      border-radius: 10px;
+      padding: 1rem 0.5rem;
+      text-align: center;
+      transition: border-color 0.3s, transform 0.2s;
+    }
+
+    .prayer-item.next {
+      border-color: var(--gold);
+      box-shadow: 0 0 20px rgba(201,168,76,0.15);
+      background: rgba(201,168,76,0.05);
+    }
+
+    .prayer-item.next .prayer-name { color: var(--gold); }
+
+    .prayer-name {
+      font-family: 'Cinzel', serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 0.35rem;
+    }
+
+    .prayer-time {
+      font-size: 1.1rem;
+      color: var(--cream);
+      font-weight: 700;
+    }
+
+    .next-badge {
+      font-size: 0.6rem;
+      background: var(--gold);
+      color: var(--bg);
+      border-radius: 4px;
+      padding: 1px 5px;
+      margin-top: 0.25rem;
+      display: inline-block;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+    }
+
+    /* Countdown */
+    .countdown {
+      margin-top: 1.2rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .countdown span {
+      font-size: 1.3rem;
+      color: var(--gold);
+      font-weight: 700;
+      font-family: 'Cinzel', serif;
+    }
+
+    /* ===== QIBLA ===== */
+    .qibla-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.2rem;
+    }
+
+    .compass-wrap {
+      position: relative;
+      width: 200px;
+      height: 200px;
+    }
+
+    .compass-ring {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      border: 2px solid rgba(201,168,76,0.25);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 30px rgba(201,168,76,0.08);
+    }
+
+    /* Compass degree marks */
+    .compass-ring::before {
+      content: 'N';
+      position: absolute;
+      top: 6px;
+      font-family: 'Cinzel', serif;
+      font-size: 0.7rem;
+      color: var(--gold);
+    }
+
+    .compass-needle {
+      position: absolute;
+      width: 4px;
+      height: 80px;
+      top: 50%;
+      left: 50%;
+      transform-origin: bottom center;
+      transform: translateX(-50%) translateY(-100%) rotate(0deg);
+      transition: transform 1s cubic-bezier(0.34,1.56,0.64,1);
+    }
+
+    .compass-needle::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-bottom: 60px solid var(--gold);
+    }
+
+    .compass-needle::after {
+      content: '☪';
+      position: absolute;
+      top: -22px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1rem;
+      color: var(--gold);
+    }
+
+    .compass-center {
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      background: var(--gold);
+      z-index: 2;
+    }
+
+    .qibla-degree {
+      font-family: 'Cinzel', serif;
+      font-size: 1.6rem;
+      color: var(--gold);
+    }
+
+    .qibla-note {
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    /* ===== TASBIH ===== */
+    #tasbih .card { text-align: center; }
+
+    .dhikr-tabs {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .dhikr-tab {
+      background: var(--bg3);
+      border: 1px solid rgba(201,168,76,0.15);
+      color: var(--muted);
+      border-radius: 50px;
+      padding: 0.4rem 1rem;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: 'Lato', sans-serif;
+    }
+
+    .dhikr-tab.active {
+      background: rgba(201,168,76,0.12);
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .tasbih-arabic {
+      font-family: 'Amiri', serif;
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      color: var(--gold);
+      text-shadow: 0 0 30px rgba(201,168,76,0.3);
+      margin-bottom: 0.3rem;
+      direction: rtl;
+    }
+
+    .tasbih-transliteration {
+      font-size: 0.9rem;
+      color: var(--muted);
+      font-style: italic;
+      margin-bottom: 0.2rem;
+    }
+
+    .tasbih-meaning {
+      font-size: 0.82rem;
+      color: var(--accent2);
+      margin-bottom: 2rem;
+    }
+
+    .tasbih-counter-display {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(4rem, 12vw, 7rem);
+      color: var(--cream);
+      line-height: 1;
+      margin: 0.5rem 0;
+      transition: transform 0.1s;
+    }
+
+    .tasbih-counter-display.bump {
+      transform: scale(1.08);
+    }
+
+    .tasbih-progress {
+      width: 100%;
+      max-width: 300px;
+      height: 4px;
+      background: var(--bg3);
+      border-radius: 4px;
+      margin: 0.8rem auto 1.5rem;
+      overflow: hidden;
+    }
+
+    .tasbih-progress-bar {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent), var(--gold));
+      border-radius: 4px;
+      transition: width 0.3s ease;
+    }
+
+    .tasbih-round {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .tasbih-btn {
+      width: min(240px, 90%);
+      height: min(240px, 90vw);
+      border-radius: 50%;
+      border: 3px solid rgba(201,168,76,0.3);
+      background: radial-gradient(circle at 35% 35%, rgba(201,168,76,0.15), rgba(201,168,76,0.03));
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      transition: transform 0.1s, box-shadow 0.2s;
+      box-shadow: 0 0 40px rgba(201,168,76,0.08), inset 0 0 30px rgba(0,0,0,0.3);
+    }
+
+    .tasbih-btn:active {
+      transform: scale(0.95);
+      box-shadow: 0 0 60px rgba(201,168,76,0.2), inset 0 0 40px rgba(0,0,0,0.4);
+    }
+
+    .tasbih-btn-inner {
+      font-family: 'Cinzel', serif;
+      font-size: 0.85rem;
+      color: var(--gold);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .tasbih-controls {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    /* ===== 99 NAMES ===== */
+    #names .names-search {
+      display: flex;
+      gap: 0.6rem;
+      margin-bottom: 1.5rem;
+    }
+
+    #names .names-search input {
+      flex: 1;
+      background: var(--bg2);
+      border: 1px solid rgba(201,168,76,0.2);
+      border-radius: 8px;
+      padding: 0.6rem 1rem;
+      color: var(--cream);
+      font-family: 'Lato', sans-serif;
+      font-size: 0.9rem;
+    }
+
+    #names .names-search input:focus { outline: none; border-color: var(--gold); }
+
+    .names-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 0.8rem;
+      max-height: 640px;
+      overflow-y: auto;
+      padding-right: 0.3rem;
+    }
+
+    .names-grid::-webkit-scrollbar { width: 4px; }
+    .names-grid::-webkit-scrollbar-track { background: var(--bg3); border-radius: 4px; }
+    .names-grid::-webkit-scrollbar-thumb { background: rgba(201,168,76,0.3); border-radius: 4px; }
+
+    .name-card {
+      background: var(--bg3);
+      border: 1px solid rgba(201,168,76,0.07);
+      border-radius: 10px;
+      padding: 1rem 0.75rem;
+      text-align: center;
+      cursor: default;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .name-card:hover {
+      border-color: rgba(201,168,76,0.35);
+      transform: translateY(-2px);
+    }
+
+    .name-number {
+      font-size: 0.65rem;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .name-arabic {
+      font-family: 'Amiri', serif;
+      font-size: 1.35rem;
+      color: var(--gold);
+      direction: rtl;
+      margin-bottom: 0.3rem;
+    }
+
+    .name-transliteration {
+      font-size: 0.75rem;
+      color: var(--cream);
+      font-weight: 700;
+      margin-bottom: 0.2rem;
+    }
+
+    .name-meaning {
+      font-size: 0.7rem;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    /* ===== HIJRI DATE ===== */
+    .hijri-bar {
+      background: var(--bg2);
+      border: 1px solid rgba(201,168,76,0.1);
+      border-radius: 10px;
+      padding: 0.8rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .hijri-item { font-size: 0.82rem; color: var(--muted); }
+    .hijri-item strong { color: var(--cream); }
+
+    /* ===== FOOTER ===== */
+    footer {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 3rem 1rem;
+      border-top: 1px solid rgba(201,168,76,0.1);
+      color: var(--muted);
+      font-size: 0.8rem;
+      line-height: 2;
+    }
+
+    footer .footer-logo {
+      font-family: 'Amiri', serif;
+      font-size: 1.6rem;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    /* ===== LOADING STATE ===== */
+    .loading {
+      color: var(--muted);
+      font-size: 0.82rem;
+      padding: 1rem;
+      text-align: center;
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+
+    @keyframes pulse { 0%,100%{opacity:0.5} 50%{opacity:1} }
+
+    /* ===== TOAST ===== */
+    .toast {
+      position: fixed;
+      bottom: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(80px);
+      background: var(--bg2);
+      border: 1px solid rgba(201,168,76,0.3);
+      border-radius: 50px;
+      padding: 0.55rem 1.4rem;
+      font-size: 0.85rem;
+      color: var(--gold);
+      z-index: 999;
+      transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
+      pointer-events: none;
+    }
+
+    .toast.show { transform: translateX(-50%) translateY(0); }
+
+    /* ===== RESPONSIVE ===== */
+    @media(max-width: 700px) {
+      #prayer .grid { grid-template-columns: 1fr; }
+      .prayer-grid { grid-template-columns: repeat(2, 1fr); }
+      nav .nav-links { display: none; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">☪ Islamic Corner</a>
+  <ul class="nav-links">
+    <li><a href="#prayer">Prayer</a></li>
+    <li><a href="#tasbih">Tasbih</a></li>
+    <li><a href="#names">99 Names</a></li>
+  </ul>
+</nav>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- ============================================================ -->
+<!--  HERO                                                         -->
+<!-- ============================================================ -->
+<div class="hero">
+  <div class="bismillah">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
+  <h1 class="hero-title">Islamic Corner</h1>
+  <p class="hero-sub">Your daily companion for prayer times, Tasbih, Qibla direction, and the Beautiful Names of Allah.</p>
+
+  <!-- Live visitor counter using hits.seeyoufarm.com -->
+  <div class="visitor-badge">
+    <span class="visitor-dot"></span>
+    <span>Visitors: </span>
+    <!-- REPLACE "YOUR-USERNAME/YOUR-REPO" with your actual GitHub username/repo -->
+    <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2FYOUR-USERNAME.github.io&count_bg=%23C9A84C&title_bg=%230D1A2E&icon=&icon_color=%23C9A84C&title=visits&edge_flat=true" alt="Visitor Count" style="height:18px;vertical-align:middle;border-radius:4px;" onerror="this.style.display='none'"/>
+  </div>
+
+  <div class="scroll-hint">
+    <span>Scroll to explore</span>
+    <span class="scroll-arrow"></span>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!--  HIJRI DATE BAR                                               -->
+<!-- ============================================================ -->
+<section style="padding-top:0">
+  <div class="hijri-bar" id="hijriBar">
+    <span class="hijri-item">📅 Gregorian: <strong id="gregorianDate">—</strong></span>
+    <span class="hijri-item">🌙 Hijri: <strong id="hijriDate">—</strong></span>
+    <span class="hijri-item">🕐 Local Time: <strong id="localTime">—</strong></span>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!--  PRAYER TIMES + QIBLA                                         -->
+<!-- ============================================================ -->
+<section id="prayer">
+  <p class="section-label">Daily Salah</p>
+  <h2 class="section-title">Prayer Times & Qibla</h2>
+  <div class="section-divider"></div>
+
+  <div class="grid">
+    <!-- Prayer Times -->
+    <div class="card">
+      <div class="prayer-location">
+        <input type="text" id="cityInput" placeholder="City (e.g. London)" value="" />
+        <input type="text" id="countryInput" placeholder="Country (e.g. UK)" value="" />
+        <button class="btn" onclick="fetchPrayerTimes()">Search</button>
+        <button class="btn btn-outline" onclick="useMyLocation()">📍 My Location</button>
+      </div>
+      <div id="prayerGrid" class="loading">Detecting your location…</div>
+      <div class="countdown" id="countdown"></div>
+    </div>
+
+    <!-- Qibla -->
+    <div class="card prayer-card">
+      <div class="qibla-card">
+        <div class="compass-wrap">
+          <div class="compass-ring">
+            <div class="compass-needle" id="qiblaNeedle"></div>
+            <div class="compass-center"></div>
+          </div>
+        </div>
+        <div class="qibla-degree" id="qiblaDegree">—°</div>
+        <div class="qibla-note" id="qiblaNote">Enable location for Qibla direction</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!--  TASBIH COUNTER                                               -->
+<!-- ============================================================ -->
+<section id="tasbih">
+  <p class="section-label">Dhikr</p>
+  <h2 class="section-title">Tasbih Counter</h2>
+  <div class="section-divider"></div>
+
+  <div class="card">
+    <!-- Tabs -->
+    <div class="dhikr-tabs" id="dhikrTabs">
+      <button class="dhikr-tab active" onclick="selectDhikr(0,this)">Subhanallah</button>
+      <button class="dhikr-tab" onclick="selectDhikr(1,this)">Alhamdulillah</button>
+      <button class="dhikr-tab" onclick="selectDhikr(2,this)">Allahu Akbar</button>
+      <button class="dhikr-tab" onclick="selectDhikr(3,this)">La ilaha illallah</button>
+      <button class="dhikr-tab" onclick="selectDhikr(4,this)">Astaghfirullah</button>
+    </div>
+
+    <div class="tasbih-arabic" id="dhikrArabic">سُبْحَانَ اللَّهِ</div>
+    <div class="tasbih-transliteration" id="dhikrTrans">Subḥāna llāh</div>
+    <div class="tasbih-meaning" id="dhikrMeaning">Glory be to Allah</div>
+
+    <div class="tasbih-counter-display" id="tasbihCount">0</div>
+
+    <div class="tasbih-progress">
+      <div class="tasbih-progress-bar" id="tasbihBar" style="width:0%"></div>
+    </div>
+
+    <div class="tasbih-round" id="tasbihRound">Round 1 · Goal: 33</div>
+
+    <button class="tasbih-btn" id="tasbihBtn" onclick="tapTasbih()">
+      <span class="tasbih-btn-inner">Tap</span>
+    </button>
+
+    <div class="tasbih-controls">
+      <button class="btn btn-outline" onclick="resetTasbih()">Reset</button>
+      <button class="btn btn-outline" onclick="undoTasbih()">Undo</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!--  99 NAMES OF ALLAH                                            -->
+<!-- ============================================================ -->
+<section id="names">
+  <p class="section-label">Asmaul Husna</p>
+  <h2 class="section-title">The 99 Beautiful Names of Allah</h2>
+  <div class="section-divider"></div>
+
+  <div class="names-search">
+    <input type="text" id="namesSearch" placeholder="Search by name or meaning…" oninput="filterNames()" />
+  </div>
+
+  <div class="names-grid" id="namesGrid"></div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-logo">اللّٰه</span>
+  Made with ❤️ for the Ummah &nbsp;·&nbsp;
+  <a href="https://github.com/YOUR-USERNAME/YOUR-REPO" style="color:var(--gold);text-decoration:none;">GitHub</a>
+  &nbsp;·&nbsp; May Allah accept it from us.
+</footer>
+
+
+<script>
+/* ================================================================
+   DATA
+================================================================ */
+
+const DHIKR = [
+  { arabic: 'سُبْحَانَ اللَّهِ', trans: 'Subḥāna llāh', meaning: 'Glory be to Allah', goal: 33 },
+  { arabic: 'ٱلْحَمْدُ لِلَّٰهِ', trans: 'Al-ḥamdu lillāh', meaning: 'All praise is due to Allah', goal: 33 },
+  { arabic: 'اللَّهُ أَكْبَر', trans: 'Allāhu akbar', meaning: 'Allah is the Greatest', goal: 34 },
+  { arabic: 'لَا إِلَٰهَ إِلَّا ٱللَّٰهُ', trans: 'Lā ilāha illallāh', meaning: 'There is no god but Allah', goal: 100 },
+  { arabic: 'أَسْتَغْفِرُ اللَّهَ', trans: 'Astaghfiru llāh', meaning: 'I seek forgiveness from Allah', goal: 100 },
+];
+
+const NAMES_99 = [
+  ['اللَّهُ','Allah','The One Deserving All Worship'],
+  ['الرَّحْمَٰنُ','Ar-Rahman','The Most Gracious'],
+  ['الرَّحِيمُ','Ar-Rahim','The Most Merciful'],
+  ['الْمَلِكُ','Al-Malik','The King, The Sovereign'],
+  ['الْقُدُّوسُ','Al-Quddus','The Most Holy'],
+  ['السَّلَامُ','As-Salam','The Source of Peace'],
+  ['الْمُؤْمِنُ','Al-Mumin','The Granter of Security'],
+  ['الْمُهَيْمِنُ','Al-Muhaymin','The Protector'],
+  ['الْعَزِيزُ','Al-Aziz','The Almighty'],
+  ['الْجَبَّارُ','Al-Jabbar','The Compeller'],
+  ['الْمُتَكَبِّرُ','Al-Mutakabbir','The Majestic'],
+  ['الْخَالِقُ','Al-Khaliq','The Creator'],
+  ['الْبَارِئُ','Al-Bari','The Originator'],
+  ['الْمُصَوِّرُ','Al-Musawwir','The Fashioner of Forms'],
+  ['الْغَفَّارُ','Al-Ghaffar','The Ever-Forgiving'],
+  ['الْقَهَّارُ','Al-Qahhar','The Subduer'],
+  ['الْوَهَّابُ','Al-Wahhab','The Bestower'],
+  ['الرَّزَّاقُ','Ar-Razzaq','The Provider'],
+  ['الْفَتَّاحُ','Al-Fattah','The Opener'],
+  ['الْعَلِيمُ','Al-Alim','The All-Knowing'],
+  ['الْقَابِضُ','Al-Qabid','The Withholder'],
+  ['الْبَاسِطُ','Al-Basit','The Extender'],
+  ['الْخَافِضُ','Al-Khafid','The Reducer'],
+  ['الرَّافِعُ','Ar-Rafi','The Exalter'],
+  ['الْمُعِزُّ','Al-Muizz','The Honourer'],
+  ['الْمُذِلُّ','Al-Mudhill','The Dishonourer'],
+  ['السَّمِيعُ','As-Sami','The All-Hearing'],
+  ['الْبَصِيرُ','Al-Basir','The All-Seeing'],
+  ['الْحَكَمُ','Al-Hakam','The Judge'],
+  ['الْعَدْلُ','Al-Adl','The Just'],
+  ['اللَّطِيفُ','Al-Latif','The Subtle One'],
+  ['الْخَبِيرُ','Al-Khabir','The All-Aware'],
+  ['الْحَلِيمُ','Al-Halim','The Forbearing'],
+  ['الْعَظِيمُ','Al-Azim','The Magnificent'],
+  ['الْغَفُورُ','Al-Ghafur','The Forgiving'],
+  ['الشَّكُورُ','Ash-Shakur','The Appreciative'],
+  ['الْعَلِيُّ','Al-Ali','The Most High'],
+  ['الْكَبِيرُ','Al-Kabir','The Greatest'],
+  ['الْحَفِيظُ','Al-Hafiz','The Preserver'],
+  ['الْمُقِيتُ','Al-Muqit','The Nourisher'],
+  ['الْحَسِيبُ','Al-Hasib','The Reckoner'],
+  ['الْجَلِيلُ','Al-Jalil','The Majestic'],
+  ['الْكَرِيمُ','Al-Karim','The Generous'],
+  ['الرَّقِيبُ','Ar-Raqib','The Watchful'],
+  ['الْمُجِيبُ','Al-Mujib','The Responsive'],
+  ['الْوَاسِعُ','Al-Wasi','The All-Encompassing'],
+  ['الْحَكِيمُ','Al-Hakim','The All-Wise'],
+  ['الْوَدُودُ','Al-Wadud','The Loving'],
+  ['الْمَجِيدُ','Al-Majid','The Glorious'],
+  ['الْبَاعِثُ','Al-Baith','The Resurrector'],
+  ['الشَّهِيدُ','Ash-Shahid','The Witness'],
+  ['الْحَقُّ','Al-Haqq','The Truth'],
+  ['الْوَكِيلُ','Al-Wakil','The Trustee'],
+  ['الْقَوِيُّ','Al-Qawiyy','The Strong'],
+  ['الْمَتِينُ','Al-Matin','The Firm'],
+  ['الْوَلِيُّ','Al-Wali','The Protecting Friend'],
+  ['الْحَمِيدُ','Al-Hamid','The Praiseworthy'],
+  ['الْمُحْصِي','Al-Muhsi','The Counter'],
+  ['الْمُبْدِئُ','Al-Mubdi','The Originator'],
+  ['الْمُعِيدُ','Al-Muid','The Restorer'],
+  ['الْمُحْيِي','Al-Muhyi','The Giver of Life'],
+  ['الْمُمِيتُ','Al-Mumit','The Bringer of Death'],
+  ['الْحَيُّ','Al-Hayy','The Ever-Living'],
+  ['الْقَيُّومُ','Al-Qayyum','The Self-Subsisting'],
+  ['الْوَاجِدُ','Al-Wajid','The Finder'],
+  ['الْمَاجِدُ','Al-Majid','The Noble'],
+  ['الْوَاحِدُ','Al-Wahid','The Unique'],
+  ['الأَحَد','Al-Ahad','The One'],
+  ['الصَّمَدُ','As-Samad','The Eternal'],
+  ['الْقَادِرُ','Al-Qadir','The Able'],
+  ['الْمُقْتَدِرُ','Al-Muqtadir','The Powerful'],
+  ['الْمُقَدِّمُ','Al-Muqaddim','The Expediter'],
+  ['الْمُؤَخِّرُ','Al-Muakhkhir','The Delayer'],
+  ['الأَوَّلُ','Al-Awwal','The First'],
+  ['الآخِرُ','Al-Akhir','The Last'],
+  ['الظَّاهِرُ','Az-Zahir','The Manifest'],
+  ['الْبَاطِنُ','Al-Batin','The Hidden'],
+  ['الْوَالِي','Al-Wali','The Governor'],
+  ['الْمُتَعَالِ','Al-Mutaali','The Self Exalted'],
+  ['الْبَرُّ','Al-Barr','The Source of Goodness'],
+  ['التَّوَّابُ','At-Tawwab','The Acceptor of Repentance'],
+  ['الْمُنْتَقِمُ','Al-Muntaqim','The Avenger'],
+  ['الْعَفُوُّ','Al-Afuww','The Pardoner'],
+  ['الرَّؤُوفُ','Ar-Rauf','The Compassionate'],
+  ['مَالِكُ الْمُلْكِ','Malik-ul-Mulk','Owner of All Sovereignty'],
+  ['ذُو الْجَلَالِ','Dhul-Jalal','Lord of Majesty'],
+  ['الْمُقْسِطُ','Al-Muqsit','The Equitable'],
+  ['الْجَامِعُ','Al-Jami','The Gatherer'],
+  ['الْغَنِيُّ','Al-Ghani','The Self-Sufficient'],
+  ['الْمُغْنِي','Al-Mughni','The Enricher'],
+  ['الْمَانِعُ','Al-Mani','The Preventer'],
+  ['الضَّارُّ','Ad-Darr','The Distresser'],
+  ['النَّافِعُ','An-Nafi','The Propitious'],
+  ['النُّورُ','An-Nur','The Light'],
+  ['الْهَادِي','Al-Hadi','The Guide'],
+  ['الْبَدِيعُ','Al-Badi','The Incomparable'],
+  ['الْبَاقِي','Al-Baqi','The Everlasting'],
+  ['الْوَارِثُ','Al-Warith','The Inheritor'],
+  ['الرَّشِيدُ','Ar-Rashid','The Guide to the Right Path'],
+  ['الصَّبُورُ','As-Sabur','The Patient'],
+];
+
+/* ================================================================
+   TASBIH
+================================================================ */
+let tasbihCount = 0, tasbihRound = 1, currentDhikr = 0;
+
+function selectDhikr(idx, el) {
+  currentDhikr = idx;
+  document.querySelectorAll('.dhikr-tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  const d = DHIKR[idx];
+  document.getElementById('dhikrArabic').textContent = d.arabic;
+  document.getElementById('dhikrTrans').textContent = d.trans;
+  document.getElementById('dhikrMeaning').textContent = d.meaning;
+  resetTasbih();
+}
+
+function tapTasbih() {
+  tasbihCount++;
+  const goal = DHIKR[currentDhikr].goal;
+  const pct = Math.min((tasbihCount % goal || (tasbihCount ? goal : 0)) / goal * 100, 100);
+
+  if (tasbihCount % goal === 0) {
+    tasbihRound++;
+    showToast(`🎉 ${goal} reached! Round ${tasbihRound} begins`);
+  }
+
+  const el = document.getElementById('tasbihCount');
+  el.textContent = tasbihCount;
+  el.classList.add('bump');
+  setTimeout(() => el.classList.remove('bump'), 100);
+  document.getElementById('tasbihBar').style.width = pct + '%';
+  document.getElementById('tasbihRound').textContent =
+    `Round ${tasbihRound} · Count: ${tasbihCount % goal || (tasbihCount ? goal : 0)} / ${goal}`;
+}
+
+function resetTasbih() {
+  tasbihCount = 0; tasbihRound = 1;
+  document.getElementById('tasbihCount').textContent = '0';
+  document.getElementById('tasbihBar').style.width = '0%';
+  document.getElementById('tasbihRound').textContent = `Round 1 · Goal: ${DHIKR[currentDhikr].goal}`;
+}
+
+function undoTasbih() {
+  if (tasbihCount > 0) { tasbihCount--; tapTasbih(); tasbihCount--; tapTasbih(); tasbihCount++; }
+  // simple: just decrement
+  if (tasbihCount > 0) tasbihCount--;
+  document.getElementById('tasbihCount').textContent = tasbihCount;
+  const goal = DHIKR[currentDhikr].goal;
+  const rem = tasbihCount % goal;
+  document.getElementById('tasbihBar').style.width = (rem / goal * 100) + '%';
+  document.getElementById('tasbihRound').textContent = `Round ${tasbihRound} · Count: ${rem || (tasbihCount ? goal : 0)} / ${goal}`;
+}
+
+/* ================================================================
+   99 NAMES
+================================================================ */
+function renderNames(filter = '') {
+  const grid = document.getElementById('namesGrid');
+  const q = filter.toLowerCase();
+  grid.innerHTML = NAMES_99
+    .map(([ar, tr, mn], i) => {
+      if (q && !tr.toLowerCase().includes(q) && !mn.toLowerCase().includes(q)) return '';
+      return `<div class="name-card">
+        <div class="name-number">${String(i+1).padStart(2,'0')}</div>
+        <div class="name-arabic">${ar}</div>
+        <div class="name-transliteration">${tr}</div>
+        <div class="name-meaning">${mn}</div>
+      </div>`;
+    }).join('');
+}
+
+function filterNames() {
+  renderNames(document.getElementById('namesSearch').value);
+}
+
+/* ================================================================
+   PRAYER TIMES
+================================================================ */
+const PRAYERS = ['Fajr','Sunrise','Dhuhr','Asr','Maghrib','Isha'];
+
+async function fetchPrayerTimes(lat, lon) {
+  const grid = document.getElementById('prayerGrid');
+  grid.innerHTML = '<div class="loading">Loading prayer times…</div>';
+
+  try {
+    let url;
+    if (lat !== undefined) {
+      url = `https://api.aladhan.com/v1/timings?latitude=${lat}&longitude=${lon}&method=3`;
+    } else {
+      const city = document.getElementById('cityInput').value.trim() || 'London';
+      const country = document.getElementById('countryInput').value.trim() || 'UK';
+      url = `https://api.aladhan.com/v1/timingsByCity?city=${encodeURIComponent(city)}&country=${encodeURIComponent(country)}&method=3`;
+    }
+
+    const res = await fetch(url);
+    const data = await res.json();
+    const timings = data.data.timings;
+    const hijri = data.data.date.hijri;
+
+    // Hijri bar
+    document.getElementById('hijriDate').textContent =
+      `${hijri.day} ${hijri.month.en} ${hijri.year} AH`;
+
+    // Find next prayer
+    const now = new Date();
+    const hhmm = h => { const [hh,mm] = h.split(':'); const d=new Date(); d.setHours(+hh,+mm,0,0); return d; };
+    let nextPrayer = null, minDiff = Infinity;
+    PRAYERS.forEach(p => {
+      const t = hhmm(timings[p]);
+      const diff = t - now;
+      if (diff > 0 && diff < minDiff) { minDiff = diff; nextPrayer = p; }
+    });
+
+    grid.innerHTML = `<div class="prayer-grid">${PRAYERS.map(p => {
+      const isNext = p === nextPrayer;
+      const [hh, mm] = timings[p].split(':');
+      const h = +hh % 12 || 12;
+      const ampm = +hh < 12 ? 'AM' : 'PM';
+      return `<div class="prayer-item${isNext ? ' next' : ''}">
+        <div class="prayer-name">${p}</div>
+        <div class="prayer-time">${h}:${mm} ${ampm}</div>
+        ${isNext ? '<span class="next-badge">NEXT</span>' : ''}
+      </div>`;
+    }).join('')}</div>`;
+
+    // Countdown
+    if (nextPrayer) startCountdown(hhmm(timings[nextPrayer]), nextPrayer);
+
+  } catch(e) {
+    grid.innerHTML = '<div class="loading">Failed to load. Check your city name.</div>';
+  }
+}
+
+function startCountdown(target, name) {
+  clearInterval(window._ctInterval);
+  const el = document.getElementById('countdown');
+  function tick() {
+    const diff = target - new Date();
+    if (diff <= 0) { el.textContent = `🕌 ${name} time is now!`; return; }
+    const h = Math.floor(diff/3600000);
+    const m = Math.floor((diff%3600000)/60000);
+    const s = Math.floor((diff%60000)/1000);
+    el.innerHTML = `Next: <strong>${name}</strong> in <span>${h}h ${m}m ${s}s</span>`;
+  }
+  tick(); window._ctInterval = setInterval(tick, 1000);
+}
+
+function useMyLocation() {
+  if (!navigator.geolocation) return showToast('Geolocation not supported');
+  navigator.geolocation.getCurrentPosition(pos => {
+    fetchPrayerTimes(pos.coords.latitude, pos.coords.longitude);
+    fetchQibla(pos.coords.latitude, pos.coords.longitude);
+  }, () => showToast('Location denied'));
+}
+
+async function fetchQibla(lat, lon) {
+  try {
+    const res = await fetch(`https://api.aladhan.com/v1/qibla/${lat}/${lon}`);
+    const data = await res.json();
+    const deg = Math.round(data.data.direction);
+    document.getElementById('qiblaDegree').textContent = deg + '°';
+    document.getElementById('qiblaNote').textContent = `${deg}° from North`;
+    document.getElementById('qiblaNeedle').style.transform =
+      `translateX(-50%) translateY(-100%) rotate(${deg}deg)`;
+  } catch(e) {}
+}
+
+/* ================================================================
+   HIJRI DATE + CLOCK
+================================================================ */
+function updateClock() {
+  const now = new Date();
+  document.getElementById('gregorianDate').textContent = now.toLocaleDateString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+  document.getElementById('localTime').textContent = now.toLocaleTimeString();
+}
+setInterval(updateClock, 1000); updateClock();
+
+/* ================================================================
+   TOAST
+================================================================ */
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2800);
+}
+
+/* ================================================================
+   INIT
+================================================================ */
+renderNames();
+
+// Try auto-detect location on load
+if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(pos => {
+    fetchPrayerTimes(pos.coords.latitude, pos.coords.longitude);
+    fetchQibla(pos.coords.latitude, pos.coords.longitude);
+  }, () => fetchPrayerTimes());
+} else {
+  fetchPrayerTimes(); // default to London
+}
+</script>
+</body>
+</html>
