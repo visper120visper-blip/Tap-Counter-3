@@ -770,12 +770,10 @@
   <h1 class="hero-title">Islamic Corner</h1>
   <p class="hero-sub">Your daily companion for prayer times, Tasbih, Qibla direction, and the Beautiful Names of Allah.</p>
 
-  <!-- Live visitor counter using hits.seeyoufarm.com -->
   <div class="visitor-badge">
     <span class="visitor-dot"></span>
-    <span>Visitors: </span>
-    <!-- REPLACE "YOUR-USERNAME/YOUR-REPO" with your actual GitHub username/repo -->
-    <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2FYOUR-USERNAME.github.io&count_bg=%23C9A84C&title_bg=%230D1A2E&icon=&icon_color=%23C9A84C&title=visits&edge_flat=true" alt="Visitor Count" style="height:18px;vertical-align:middle;border-radius:4px;" onerror="this.style.display='none'"/>
+    <span>Total Visitors:</span>
+    <span id="visitorCount" style="font-weight:700;font-size:1rem;color:var(--gold)">…</span>
   </div>
 
   <div class="scroll-hint">
@@ -1198,6 +1196,38 @@ function showToast(msg) {
   t.textContent = msg; t.classList.add('show');
   setTimeout(() => t.classList.remove('show'), 2800);
 }
+
+/* ================================================================
+   VISITOR COUNTER  (CountAPI – free, no signup needed)
+   Namespace = your GitHub username, key = your repo name
+   Change both strings below to match YOUR site!
+================================================================ */
+(async function() {
+  // ✏️  EDIT THESE two values to match your GitHub Pages site:
+  const NAMESPACE = 'YOUR-USERNAME';   // e.g.  'ahmadali'
+  const KEY       = 'islamic-corner';  // e.g.  'islamic-corner'
+
+  const el = document.getElementById('visitorCount');
+  try {
+    // "hit" endpoint increments by 1 and returns the new total
+    const res  = await fetch(`https://api.countapi.xyz/hit/${NAMESPACE}/${KEY}`);
+    const data = await res.json();
+    // Animate the number counting up
+    const target = data.value;
+    let current  = Math.max(0, target - 60);
+    const step   = Math.ceil((target - current) / 40);
+    const timer  = setInterval(() => {
+      current = Math.min(current + step, target);
+      el.textContent = current.toLocaleString();
+      if (current >= target) clearInterval(timer);
+    }, 30);
+  } catch(e) {
+    // Fallback: show a local session count if API fails
+    const stored = +(localStorage.getItem('vc') || 0) + 1;
+    localStorage.setItem('vc', stored);
+    el.textContent = stored.toLocaleString();
+  }
+})();
 
 /* ================================================================
    INIT
